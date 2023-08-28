@@ -23,20 +23,29 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @PostMapping ResponseEntity<?> createUser(@RequestBody User user) {
+    @PostMapping
+    ResponseEntity<?> createUser(@RequestBody User user) {
         try {
             User savedUser = userRepository.save(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-        }
-        catch( Exception ex) {
+        } catch (Exception ex) {
             String ErrorMsg = "Error when creating user: " + ex.getMessage();
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorMsg);
         }
-        /*User savedUser = userRepository.save(user);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-         */
     }
 
+    @DeleteMapping
+    public ResponseEntity<String> deleteAllUsers() {
+        try {
+            long recordsDeleted = userRepository.count();
+
+            userRepository.deleteAll();
+
+            return ResponseEntity.ok("Users records dropped: " + recordsDeleted);
+        }
+        catch(Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't execute delete method");
+        }
+    }
 }
