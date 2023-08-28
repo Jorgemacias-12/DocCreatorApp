@@ -23,10 +23,20 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @PostMapping ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userRepository.save(user);
+    @PostMapping ResponseEntity<?> createUser(@RequestBody User user) {
+        try {
+            User savedUser = userRepository.save(user);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+        }
+        catch( Exception ex) {
+            String ErrorMsg = "Error when creating user: " + ex.getMessage();
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorMsg);
+        }
+        /*User savedUser = userRepository.save(user);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+         */
     }
 
 }
