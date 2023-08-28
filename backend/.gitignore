@@ -34,3 +34,6 @@ build/
 
 ### .mvn folder ###
 .mvn/
+
+### .odb files ###
+*.odb[$]?
