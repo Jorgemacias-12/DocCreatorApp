@@ -12,9 +12,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
-    public String FullName;
-    public String Email;
-    public String[] Preferences;
+    private String FullName;
+    private String Email;
+    private String[] Preferences;
 
     public User() {
     }
