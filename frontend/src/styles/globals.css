@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --error-bg: #e63946;
+  --error-bg-30: #b82e38;
+  --error-bg-50: #f39ca3;
+  --sucess-bg: #57cc99;
+  --sucess-bg-30: #46a37a;
+  --sucess-bg-50: #9ae0c2;
+  --dark-theme-bg: #01161e;
+  --dark-theme-bg-30: #010f15;
+  --dark-theme-bg-50: #808b8f;
+  --accent-1-bg: #2ec4b6;
+  --accent-1-bg-30: #259d92;
+  --accent-1-bg-50: #97e2db;
+  --accent-2-bg: #4361ee;
+  --accent-2-bg-30: #364ebe;
+  --accent-2-bg-50: #8ea0f5;
+}
