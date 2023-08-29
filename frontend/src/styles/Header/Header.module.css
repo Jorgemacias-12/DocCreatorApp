@@ -1,0 +1,23 @@
+.header {
+  background-color: var(--accent-1-bg);
+}
+
+.headerWrapper {
+  display: flex;
+  width: 80%;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.menuItem {
+  padding: 1rem;
+}
+
+.menuItem:hover {
+  background-color: var(--accent-1-bg-50);
+  color: black;
+}
